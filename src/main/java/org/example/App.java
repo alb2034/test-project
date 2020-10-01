@@ -1,5 +1,8 @@
 package org.example;
 
+import org.matrix.Matrix;
+import org.matrix.SquareMatrix;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -11,9 +14,14 @@ public class App
 {
     public static void main( String[] args )
     {
-        List<Integer> integers = Arrays.asList(1, 2, 3);
+        List<Matrix> matrixs = Arrays.asList(new SquareMatrix(), new SquareMatrix());
 
-        // Вывод на экран значений списка
-        integers.forEach(System.out::println);
+        // Вывод на экран значений сумм диагоналей матриц
+        matrixs.forEach(matrix ->
+                {
+                    Integer sum = matrix.getMainDiagonalSum() + matrix.getOtherDiagonalSum();
+                    System.out.println(sum);
+                }
+        );
     }
 }
